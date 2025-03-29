@@ -1,9 +1,15 @@
 package commandLine;
 
-import personnel.*;
-import commandLineMenus.*;
-import static commandLineMenus.rendering.examples.util.InOut.*;
 import java.util.ArrayList;
+
+import commandLineMenus.Action;
+import commandLineMenus.List;
+import commandLineMenus.Menu;
+import commandLineMenus.Option;
+import static commandLineMenus.rendering.examples.util.InOut.getString;
+import personnel.Employe;
+import personnel.GestionPersonnel;
+import personnel.SauvegardeImpossible;
 
 public class PersonnelConsole
 {

@@ -171,7 +171,7 @@ public class LigueConsole
 	private Option modifierEmploye(final Employe employe)
 	{
 		return new Option("Modifier l'employé", "e", 
-				() -> employeConsole.editerEmploye(employe).start());
+				() -> employeConsole.editerEmploye(employe));
 	}
 
 	private Option supprimerEmploye(final Employe employe)
