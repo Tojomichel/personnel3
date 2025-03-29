@@ -19,7 +19,9 @@ public class PersonnelConsole
 	
 	public void start()
 	{
-		menuPrincipal().start();
+		Menu menu = menuPrincipal();
+		menu.add(menuEmployes());
+		menu.start();
 	}
 	
 	private Menu menuPrincipal()
@@ -29,6 +31,36 @@ public class PersonnelConsole
 		menu.add(ligueConsole.menuLigues());
 		menu.add(menuQuitter());
 		return menu;
+	}
+
+	private Menu menuEmployes()
+	{
+		Menu menu = new Menu("Gérer les employés");
+		menu.add(selectionnerEmploye());
+		menu.addBack("q");
+		return menu;
+	}
+
+	private List<Employe> selectionnerEmploye()
+	{
+		return new List<>("Sélectionner un employé", "s",
+			() -> new ArrayList<>(gestionPersonnel.getRoot().getLigue().getEmployes()),
+			this::menuActionsEmploye
+		);
+	}
+
+	private Menu menuActionsEmploye(Employe employe)
+	{
+		Menu menu = new Menu("Actions pour " + employe.getNom());
+		menu.add(employeConsole.editerEmploye(employe));
+		menu.add(supprimerEmploye(employe));
+		menu.addBack("q");
+		return menu;
+	}
+
+	private Option supprimerEmploye(Employe employe)
+	{
+		return new Option("Supprimer l'employé", "d", () -> employe.remove());
 	}
 
 	private Menu menuQuitter()
