@@ -27,7 +27,6 @@ public class PersonnelConsole
 	public void start()
 	{
 		Menu menu = menuPrincipal();
-		menu.add(menuEmployes());
 		menu.start();
 	}
 	

@@ -168,11 +168,14 @@ public class LigueConsole
 		return menu;
 	}
 
-	private Option modifierEmploye(final Employe employe)
+	private Menu modifierEmploye(Employe employe)
 	{
-		return new Option("Modifier l'employé", "e", 
-				() -> employeConsole.editerEmploye(employe));
+	    Menu menu = new Menu("Modifier " + employe.getNom(), "m");
+	    menu.add(employeConsole.editerEmploye(employe));
+	    menu.addBack("q");
+	    return menu;
 	}
+
 
 	private Option supprimerEmploye(final Employe employe)
 	{
