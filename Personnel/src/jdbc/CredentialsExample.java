@@ -6,9 +6,9 @@ public class CredentialsExample
 	private static String driverClassName = "com.mysql.cj.jdbc.Driver";
 	private static String host = "localhost";
 	private static String port = "3306";
-	private static String database = "ligue";
-	private static String user = "tojo";
-	private static String password = "123456";
+	private static String database = "";
+	private static String user = "";
+	private static String password = "";
 	
 	static String getUrl() 
 	{
