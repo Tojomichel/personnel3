@@ -3,6 +3,7 @@ package commandLine;
 import personnel.*;
 import commandLineMenus.*;
 import static commandLineMenus.rendering.examples.util.InOut.*;
+import java.util.ArrayList;
 
 public class PersonnelConsole
 {
@@ -35,7 +36,7 @@ public class PersonnelConsole
 
 	private Menu menuEmployes()
 	{
-		Menu menu = new Menu("Gérer les employés");
+		Menu menu = new Menu("Gérer les employés", "e"); // Shortcut "e" added
 		menu.add(selectionnerEmploye());
 		menu.addBack("q");
 		return menu;
