@@ -7,11 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import personnel.GestionPersonnel;
-import personnel.Ligue; // Ajout de l'import pour Credentials
+import personnel.Employe;
+import personnel.GestionPersonnel; // Ajout de l'import pour Credentials
+import personnel.Ligue;
 import personnel.Passerelle;
 import personnel.SauvegardeImpossible;
-import personnel.Employe;
 
 public class JDBC implements Passerelle {
 
@@ -85,8 +85,8 @@ public class JDBC implements Passerelle {
             instruction.setString(2, employe.getPrenom());
             instruction.setString(3, employe.getMail());
             instruction.setString(4, employe.getPassword());
-            instruction.setDate(5, java.sql.Date.valueOf(employe.getDateArrivee()));
-            instruction.setDate(6, java.sql.Date.valueOf(employe.getDateDepart()));
+            instruction.setDate(5, employe.getDateArrivee() != null ? java.sql.Date.valueOf(employe.getDateArrivee()) : null);
+            instruction.setDate(6, employe.getDateDepart() != null ? java.sql.Date.valueOf(employe.getDateDepart()) : null);
             instruction.setInt(7, employe.getLigue().getIdLigue());
             instruction.setBoolean(8, employe.estAdmin(employe.getLigue()));
             instruction.executeUpdate();
