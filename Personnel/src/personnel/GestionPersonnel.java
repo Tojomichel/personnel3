@@ -60,8 +60,8 @@ public class GestionPersonnel implements Serializable {
      */
     public Ligue getLigue(Employe administrateur) {
         if (administrateur.estAdmin(administrateur.getLigue())) {
-            return administrateur.getLigue();
-        } else {
+            return administrateur.getLigue(); 
+        }else {
             return null;
         }
     }
